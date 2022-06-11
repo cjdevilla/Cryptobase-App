@@ -5,8 +5,10 @@ import { ThemeProvider } from "./context/ThemeContext";
 import Home from "./routes/Home";
 import Signin from "./routes/Signin";
 import Signup from "./routes/Signup";
-import Accounts from "./routes/Accounts";
+import Account from "./routes/Account";
 import axios from 'axios';
+import CoinPage from './routes/CoinPage'
+import Footer from "./components/Footer";
 
 function App() {
   const [coins, setCoins] = useState([])
@@ -28,12 +30,13 @@ function App() {
       <Route path='/' element={<Home coins={coins} />} />
       <Route path='/signin' element={<Signin />} />
       <Route path='/signup' element={<Signup />} />
-      <Route path='/accounts' element={<Accounts />} />
-      <Route path='/coin:coinID' element={<CoinPage />}>
+      <Route path='/account' element={<Account />} />
+      <Route path='/coin/:coinId' element={<CoinPage />}>
           <Route path=':coinId' />
         <Route />
       </Route>
     </Routes>
+    <Footer />
   </ThemeProvider>
   )
 
